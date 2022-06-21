@@ -16,6 +16,20 @@ NodeJS
 ## Dépendances :
 
 Axios </br>
+VueX </br>
+vue-router </br>
+es6-promise </br>
 
 ## Repository back
 https://github.com/Stphn-Wrn/VideoGamesList-Back
+
+
+Si vous souhaitez utiliser le projet: 
+
+Créer un fichier env.js à la racine du projet et ajoutez y le code suivant :
+```
+const API = {
+  baseURL: 'http://exemple.api/'
+}
+export default API;
+```
