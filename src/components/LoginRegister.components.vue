@@ -40,7 +40,7 @@
 import { mapState } from 'vuex'
 
 export default {
-  name: 'Login',
+  name: 'LoginRegister',
   data: function () {
     return {
       mode: 'login',
@@ -72,7 +72,7 @@ export default {
         }
       }
     },
-    ...mapState(['status'])
+
   },
   methods: {
     switchToRegister: function () {
@@ -86,7 +86,7 @@ export default {
         email: this.email,
         password: this.password,
         }).then(() => {
-          this.$router.push('/profile')
+          this.$router.push('/home')
         }), function (error){
           console.log(error)
           }

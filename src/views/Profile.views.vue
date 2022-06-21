@@ -18,11 +18,11 @@
 <script>
 import { mapState } from "vuex";
 export default {
-  name: "Profile",
+  name: "ProfileView",
   mounted: function () {
     console.log(this.$store.state.user);
     if (this.$store.state.user.userId == -1) {
-      this.$router.push("/");
+      this.$router.push("/profile");
       return;
     }
     this.$store.dispatch("getUserInfos");
@@ -32,12 +32,7 @@ export default {
       user: "userInfos",
     }),
   },
-  methods: {
-    logout: function () {
-      this.$store.commit("logout");
-      this.$router.push("/");
-    },
-  },
+ 
 };
 </script>
 

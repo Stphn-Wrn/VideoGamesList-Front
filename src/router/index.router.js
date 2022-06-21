@@ -1,7 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
-import LoginRegisterView from "@/views/LoginRegister.vue";
-import ProfileView from "@/views/Profile.vue";
-
+import LoginRegisterView from "@/views/LoginRegister.views.vue";
+import ProfileView from "@/views/Profile.views.vue";
+import GamesView from "@/views/Games.views.vue"
 const routes = [
   { 
     name: 'login',
@@ -14,6 +14,11 @@ const routes = [
     component: ProfileView, 
     props:true 
   },
+  {
+    name: 'games',
+    path: '/home',
+    component: GamesView
+  }
 ]
 
 const router = createRouter({
