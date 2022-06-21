@@ -7,7 +7,9 @@
     </label>
     <ul>
       <li>
-        <a href="#">Liste de mes jeux</a>
+        <router-link :to=" '/home'">
+        Liste de mes jeux
+        </router-link>
       </li>
       <li>
         <router-link :to=" '/profile'">
@@ -25,25 +27,44 @@
 
 <script>
 import storage from "@/storage/index.storage.js";
+import { mapState } from 'vuex'
 export default {
   name: "NavComponents",
   components: {
 
   },
-  computed: {
-   user(){
-    const user = storage.get('user');
-    if (user){
-      return user;
-    } else {
-      return false;
+  mounted: function () {
+    console.log(this.$store.state.user);
+    if (this.$store.state.user.userId == -1) {
+      this.$router.push('/');
+      return ;
     }
-   }
+    this.$store.dispatch('getUserInfos');
+  },
+  computed: {
+
+    ...mapState({
+      user: 'userInfos',
+    }),
+
+  //  user(){
+  //   const user = storage.get('vuex');
+  //   if (user){
+  //     return user;
+  //   } else {
+  //     return false;
+  //   }
+  //  }
   },
   methods:{
-    
-  }
-};
+    logout: function () {
+      this.$store.commit('logout');
+      this.$router.push('/');
+      storage.unset('vuex');
+
+    }
+}
+}
 </script>
 
 

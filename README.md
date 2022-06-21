@@ -17,8 +17,8 @@ NodeJS
 
 Axios </br>
 VueX </br>
+vuex-persistedstate </br>
 vue-router </br>
-es6-promise </br>
 
 ## Repository back
 https://github.com/Stphn-Wrn/VideoGamesList-Back

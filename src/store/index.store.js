@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import 'es6-promise/auto';
 import API from '../../env.js';
+import createPersistedState from "vuex-persistedstate";
 
 const axios = require('axios');
 const instance = axios.create({
@@ -35,13 +36,13 @@ const store = createStore({
       email:'',
     }
   },
+  plugins: [createPersistedState()],
   mutations: {
     setStatus: function (state, status) {
       state.status = status;
     },
     logUser: function (state, user){
       instance.defaults.headers.common['Authorization'] = user.token;
-      localStorage.setItem('user', JSON.stringify(user));
       state.user = user;
     },
     userInfos: function (state, userInfos){

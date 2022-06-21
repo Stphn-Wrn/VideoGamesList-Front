@@ -35,7 +35,7 @@ body {
 }
 
 img {
-  max-width: 100%;
+  max-width: 20%;
   border-radius: 8px;
 }
 
@@ -64,8 +64,8 @@ img {
   flex-direction: column;
 }
   .button {
-    background: #2196F3;
-    color:white;
+ background: #2196F3;
+    color: white;
     border-radius: 8px;
     font-weight: 800;
     font-size: 15px;
@@ -73,6 +73,8 @@ img {
     width: 100%;
     padding: 16px;
     transition: .4s background-color;
+    text-align: center;
+    text-decoration: none;
   }
 
   .card__action {

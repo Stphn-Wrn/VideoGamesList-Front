@@ -108,7 +108,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .form-row {
     display: flex;
     margin: 16px 0px;
