@@ -10,31 +10,39 @@
         <a href="#">Liste de mes jeux</a>
       </li>
       <li>
-        <a href="#">Mon Compte</a>
+        <router-link :to=" '/profile'">
+        Mon compte
+        </router-link>
       </li>
       <li>
         
-        <a @click="logout()">Déconnexion</a>
+        <a @click="logout()"  v-if="user">Déconnexion</a>
+        <a v-if="!user">Se connecter</a>
       </li>
     </ul>
   </nav>
 </template>
 
 <script>
-import storage from "@/store/index.store.js";
+import storage from "@/storage/index.storage.js";
 export default {
   name: "NavComponents",
+  components: {
 
-  methods: {
-    // logout: function () {
-    //   this.$store.commit("logout");
-    //   this.$router.push("/");
-    // },
   },
   computed: {
-   
-
+   user(){
+    const user = storage.get('user');
+    if (user){
+      return user;
+    } else {
+      return false;
+    }
+   }
   },
+  methods:{
+    
+  }
 };
 </script>
 
