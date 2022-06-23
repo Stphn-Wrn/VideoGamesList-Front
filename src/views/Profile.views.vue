@@ -12,7 +12,7 @@
     </address>
     
     <div class="form-row">
-      <router-link :to="'/home'" class="button">Retour à l'accueil</router-link>
+      <router-link :to="'/'" class="button">Retour à l'accueil</router-link>
     </div>
   </div>
   </div>
@@ -25,14 +25,6 @@ export default {
   name: "ProfileView",
   components:{
   NavComponents
-  },
-  mounted: function () {
-    console.log(this.$store.state.user);
-    if (this.$store.state.user.userId == -1) {
-      this.$router.push("/profile");
-      return;
-    }
-    this.$store.dispatch("getUserInfos");
   },
   computed: {
     ...mapState({

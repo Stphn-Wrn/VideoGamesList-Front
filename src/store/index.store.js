@@ -42,7 +42,7 @@ const store = createStore({
       state.status = status;
     },
     logUser: function (state, user){
-      instance.defaults.headers.common['Authorization'] = user.token;
+      instance.defaults.headers.common['authorization'] = user.access_token;
       state.user = user;
     },
     userInfos: function (state, userInfos){

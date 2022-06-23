@@ -7,19 +7,18 @@
     </label>
     <ul>
       <li>
-        <router-link :to=" '/home'">
+        <router-link :to=" '/'" v-if="user">
         Liste de mes jeux
         </router-link>
       </li>
       <li>
-        <router-link :to=" '/profile'">
+        <router-link :to=" '/profile'" v-if="user">
         Mon compte
         </router-link>
       </li>
       <li>
-        
-        <a @click="logout()"  v-if="user">Déconnexion</a>
-        <a v-if="!user">Se connecter</a>
+        <a @click="logout()" v-if="user">Déconnexion</a>
+        <router-link :to=" '/login' " v-else>Connexion</router-link>
       </li>
     </ul>
   </nav>
@@ -47,21 +46,20 @@ export default {
       user: 'userInfos',
     }),
 
-  //  user(){
-  //   const user = storage.get('vuex');
-  //   if (user){
-  //     return user;
-  //   } else {
-  //     return false;
-  //   }
-  //  }
+   user(){
+    const user = storage.get('vuex');
+    if (user){
+      return user;
+    } else {
+      return false;
+    }
+   }
   },
   methods:{
     logout: function () {
       this.$store.commit('logout');
-      this.$router.push('/');
       storage.unset('vuex');
-
+      this.$router.go('/'); // Refresh page
     }
 }
 }
